@@ -1,0 +1,22 @@
+{
+  "name": "loomacharge",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Loomacharge — EV charging platform (landing, backoffice, OCPP 1.6J server)",
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:landing": "npm run dev --workspace landing",
+    "dev:backoffice": "npm run dev --workspace backoffice",
+    "dev:ocpp": "npm run dev --workspace ocpp-server",
+    "build": "npm run build --workspaces --if-present"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.2"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

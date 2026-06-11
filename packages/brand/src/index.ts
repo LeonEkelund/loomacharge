@@ -1,0 +1,6 @@
+export { default as horizontalBlack } from './logos/horizontal-lockup/looma-horizontal-black.svg'
+export { default as horizontalWhite } from './logos/horizontal-lockup/looma-horizontal-white.svg'
+export { default as markBlack } from './logos/mark/looma-mark-black.svg'
+export { default as markWhite } from './logos/mark/looma-mark-white.svg'
+export { default as stackedBlack } from './logos/stacked-lockup/looma-stacked-black.svg'
+export { default as stackedWhite } from './logos/stacked-lockup/looma-stacked-white.svg'

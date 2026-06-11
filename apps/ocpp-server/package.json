@@ -1,0 +1,27 @@
+{
+  "name": "ocpp-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "tsx src/server.ts",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@loomacharge/db": "*",
+    "@loomacharge/shared": "*",
+    "@supabase/supabase-js": "^2.107.0",
+    "dotenv": "^17.4.2",
+    "ocpp-rpc": "^2.2.1",
+    "tsx": "^4.22.4",
+    "typescript": "^6.0.3",
+    "ws": "^8.21.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.1",
+    "@types/ws": "^8.18.1"
+  }
+}
