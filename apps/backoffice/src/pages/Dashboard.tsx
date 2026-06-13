@@ -1,12 +1,14 @@
-import type { Session } from '@loomacharge/db'
-import { supabase } from '../lib/supabase'
+import { useAuth } from '@/lib/auth'
 
-export function Dashboard({ session }: { session: Session }) {
+export function Dashboard() {
+  const { session } = useAuth()
+
   return (
-    <div style={{ padding: 24 }}>
-      <h1>Looma backoffice</h1>
-      <p>Logged in as {session.user.email}</p>
-      <button onClick={() => supabase.auth.signOut()}>Sign out</button>
+    <div>
+      <h1 className="text-2xl font-semibold tracking-tight">Dashboard</h1>
+      <p className="mt-1 text-sm text-muted-foreground">
+        Signed in as {session?.user.email}
+      </p>
     </div>
   )
 }

@@ -1,8 +1,12 @@
-import { useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react'
 import type { Session } from '@loomacharge/db'
 import { supabase } from './supabase'
 
-export function useSession() {
+type AuthState = { session: Session | null; loading: boolean }
+
+const AuthContext = createContext<AuthState>({ session: null, loading: true })
+
+export function AuthProvider({ children }: { children: ReactNode }) {
   const [session, setSession] = useState<Session | null>(null)
   const [loading, setLoading] = useState(true)
 
@@ -17,5 +21,9 @@ export function useSession() {
     return () => sub.subscription.unsubscribe()
   }, [])
 
-  return { session, loading }
+  return <AuthContext.Provider value={{ session, loading }}>{children}</AuthContext.Provider>
+}
+
+export function useAuth() {
+  return useContext(AuthContext)
 }

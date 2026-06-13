@@ -1,13 +1,31 @@
-import { useSession } from './lib/useSession'
+import { Routes, Route, Navigate } from 'react-router'
+import { useAuth } from './lib/auth'
+import { Layout } from './components/Layout'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
+import { Sites } from './pages/Sites'
+import { Users } from './pages/Users'
+import { Statistics } from './pages/Statistics'
+import { Logs } from './pages/Logs'
 
 function App() {
-  const { session, loading } = useSession()
+  const { session, loading } = useAuth()
 
-  if (loading) return <p>Loading…</p>
+  if (loading) return null
   if (!session) return <Login />
-  return <Dashboard session={session} />
+
+  return (
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Dashboard />} />
+        <Route path="sites" element={<Sites />} />
+        <Route path="users" element={<Users />} />
+        <Route path="statistics" element={<Statistics />} />
+        <Route path="logs" element={<Logs />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Route>
+    </Routes>
+  )
 }
 
 export default App
