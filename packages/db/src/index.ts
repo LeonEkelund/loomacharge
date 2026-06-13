@@ -7,4 +7,4 @@ export function createSupabaseClient(url: string, key: string): SupabaseClient {
   return createClient(url, key)
 }
 
-export type { SupabaseClient }
+export type { SupabaseClient, Session, User } from '@supabase/supabase-js'

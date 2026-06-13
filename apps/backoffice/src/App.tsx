@@ -1,11 +1,13 @@
-import { stackedBlack } from '@loomacharge/brand'
+import { useSession } from './lib/useSession'
+import { Login } from './pages/Login'
+import { Dashboard } from './pages/Dashboard'
 
 function App() {
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-white">
-      <img src={stackedBlack} alt="Looma" className="h-20" />
-    </div>
-  )
+  const { session, loading } = useSession()
+
+  if (loading) return <p>Loading…</p>
+  if (!session) return <Login />
+  return <Dashboard session={session} />
 }
 
 export default App
