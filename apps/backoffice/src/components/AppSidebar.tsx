@@ -17,7 +17,7 @@ import { useAuth } from '@/lib/auth'
 
 const items = [
   { title: 'Dashboard', url: '/', icon: FiGrid },
-  { title: 'Organizations', url: '/organizations', icon: FiBriefcase },
+  { title: 'Organizations', url: '/organizations', icon: FiBriefcase, superadminOnly: true },
   { title: 'Sites', url: '/sites', icon: FiMapPin },
   { title: 'Users', url: '/users', icon: FiUsers },
   { title: 'Statistics', url: '/statistics', icon: FiBarChart2 },
@@ -25,7 +25,9 @@ const items = [
 ]
 
 export function AppSidebar() {
-  const { session } = useAuth()
+  const { session, profile } = useAuth()
+  const isSuperadmin = profile?.role === 'superadmin'
+  const visibleItems = items.filter((item) => !item.superadminOnly || isSuperadmin)
 
   return (
     <Sidebar>
@@ -37,7 +39,7 @@ export function AppSidebar() {
         <SidebarGroup>
           <SidebarGroupContent>
             <SidebarMenu>
-              {items.map((item) => (
+              {visibleItems.map((item) => (
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild>
                     <NavLink to={item.url} end>
