@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router'
-import { FiGrid, FiMapPin, FiUsers, FiBarChart2, FiFileText, FiLogOut } from 'react-icons/fi'
+import { FiGrid, FiBriefcase, FiMapPin, FiUsers, FiBarChart2, FiFileText, FiLogOut } from 'react-icons/fi'
 import { horizontalBlack } from '@loomacharge/brand'
 import {
   Sidebar,
@@ -17,6 +17,7 @@ import { useAuth } from '@/lib/auth'
 
 const items = [
   { title: 'Dashboard', url: '/', icon: FiGrid },
+  { title: 'Organizations', url: '/organizations', icon: FiBriefcase },
   { title: 'Sites', url: '/sites', icon: FiMapPin },
   { title: 'Users', url: '/users', icon: FiUsers },
   { title: 'Statistics', url: '/statistics', icon: FiBarChart2 },
