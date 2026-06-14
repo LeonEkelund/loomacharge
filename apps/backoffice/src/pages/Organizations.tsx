@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 import { supabase } from '@/lib/supabase'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -28,6 +29,7 @@ export function Organizations() {
   const [name, setName] = useState('')
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState('')
+  const navigate = useNavigate()
 
   async function load() {
     setLoading(true)
@@ -104,7 +106,11 @@ export function Organizations() {
               </TableRow>
             ) : (
               orgs.map((o) => (
-                <TableRow key={o.id}>
+                <TableRow
+                  key={o.id}
+                  className="cursor-pointer"
+                  onClick={() => navigate(`/organizations/${o.id}`)}
+                >
                   <TableCell className="font-medium">{o.name}</TableCell>
                   <TableCell className="text-muted-foreground">
                     {new Date(o.created_at).toLocaleDateString()}

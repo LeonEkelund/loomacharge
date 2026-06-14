@@ -4,6 +4,7 @@ import { Layout } from './components/Layout'
 import { Login } from './pages/Login'
 import { Dashboard } from './pages/Dashboard'
 import { Organizations } from './pages/Organizations'
+import { OrganizationDetail } from './pages/OrganizationDetail'
 import { Sites } from './pages/Sites'
 import { Users } from './pages/Users'
 import { Statistics } from './pages/Statistics'
@@ -20,6 +21,7 @@ function App() {
       <Route element={<Layout />}>
         <Route index element={<Dashboard />} />
         <Route path="organizations" element={<Organizations />} />
+        <Route path="organizations/:id" element={<OrganizationDetail />} />
         <Route path="sites" element={<Sites />} />
         <Route path="users" element={<Users />} />
         <Route path="statistics" element={<Statistics />} />
