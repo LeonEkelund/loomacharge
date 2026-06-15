@@ -6,6 +6,7 @@ import { Dashboard } from './pages/Dashboard'
 import { Organizations } from './pages/Organizations'
 import { OrganizationDetail } from './pages/OrganizationDetail'
 import { Sites } from './pages/Sites'
+import { SiteDetail } from './pages/SiteDetail'
 import { Users } from './pages/Users'
 import { Statistics } from './pages/Statistics'
 import { Logs } from './pages/Logs'
@@ -23,6 +24,7 @@ function App() {
         <Route path="organizations" element={<Organizations />} />
         <Route path="organizations/:id" element={<OrganizationDetail />} />
         <Route path="sites" element={<Sites />} />
+        <Route path="sites/:id" element={<SiteDetail />} />
         <Route path="users" element={<Users />} />
         <Route path="statistics" element={<Statistics />} />
         <Route path="logs" element={<Logs />} />
